@@ -26,8 +26,12 @@ public class Main {
             }
             System.out.println("Veuillez entrer un montant.");
             String montantStr = scanner.nextLine();
-            double montant = Double.parseDouble(montantStr);
-            monCompte.faireVirement(iban, montant);
+            try {
+                double montant = Double.parseDouble(montantStr);
+                monCompte.faireVirement(iban, montant);
+            } catch (Exception e) {
+                System.err.println("Le montant doit être une valeur réelle !");
+            }
             CompteBancaire.printAll();
         }
     }
