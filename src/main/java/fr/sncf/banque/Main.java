@@ -31,6 +31,8 @@ public class Main {
                 monCompte.faireVirement(iban, montant);
             } catch (NumberFormatException e) {
                 System.err.println("Le montant doit être une valeur réelle !");
+            } catch (NullPointerException e) {
+                System.err.println("Compte non trouvé !");
             }
             CompteBancaire.printAll();
         }
