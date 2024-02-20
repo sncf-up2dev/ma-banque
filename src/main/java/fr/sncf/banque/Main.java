@@ -1,7 +1,5 @@
 package fr.sncf.banque;
 
-import java.util.InputMismatchException;
-import java.util.NoSuchElementException;
 import java.util.Scanner;
 
 public class Main {
@@ -33,6 +31,8 @@ public class Main {
                 System.err.println("Le montant doit être une valeur réelle !");
             } catch (CompteNonTrouvableException e) {
                 System.err.println("Compte non trouvé !");
+            } catch (SoldeNonSuffisanteException e) {
+                System.err.println("Solde non suffisante !");
             }
             CompteBancaire.printAll();
         }
