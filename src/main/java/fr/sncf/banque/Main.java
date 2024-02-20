@@ -15,8 +15,7 @@ public class Main {
 
         monCompte.crediter(500);
 
-        Scanner scanner = new Scanner(System.in);
-        try {
+        try (Scanner scanner = new Scanner(System.in)) {
             while (true) {
                 System.out.println("Veuillez entrer le code iban de destinataire, ou \"exit\" pour sortir.");
                 String iban = scanner.nextLine(); // Lecture code iban
@@ -37,8 +36,6 @@ public class Main {
                 }
                 CompteBancaire.printAll();
             }
-        } finally {
-            scanner.close();
         }
     }
 }
