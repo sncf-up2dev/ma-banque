@@ -23,8 +23,11 @@ public class CompteBancaire {
         return iban;
     }
 
-    public void faireVirement(String iban, double montant) {
+    public void faireVirement(String iban, double montant) throws CompteNonTrouvableException {
         CompteBancaire destinataire = CompteBancaire.trouverParIban(iban);
+        if (destinataire == null) {
+            throw new CompteNonTrouvableException();
+        }
         if (this.debiter(montant)) {
             destinataire.crediter(montant);
         }
