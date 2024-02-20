@@ -29,7 +29,7 @@ public class Main {
             try {
                 double montant = Double.parseDouble(montantStr);
                 monCompte.faireVirement(iban, montant);
-            } catch (Exception e) {
+            } catch (NumberFormatException e) {
                 System.err.println("Le montant doit être une valeur réelle !");
             }
             CompteBancaire.printAll();
